@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="狗V121.SLDASM">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0059435691926575 -0.000453042385713198 0.0501292168987138"
+        rpy="0 0 0" />
+      <mass
+        value="4.15713197404765" />
+      <inertia
+        ixx="0.02291781"
+        ixy="-0.00003202"
+        ixz="-0.00175005"
+        iyy="0.06591285"
+        iyz="0.00000542"
+        izz="0.07726015" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="LF_HipA_link">
+    <inertial>
+      <origin
+        xyz="-0.00311862019787823 5.11900964749179E-05 0.0519616622224092"
+        rpy="0 0 0" />
+      <mass
+        value="0.396736076326694" />
+      <inertia
+        ixx="0.00044117"
+        ixy="0.00000017"
+        ixz="0.00000134"
+        iyy="0.00031964"
+        iyz="-0.00000001"
+        izz="0.00028996" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_HipA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_HipA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_HipA_joint"
+    type="revolute">
+    <origin
+      xyz="0.125771692888821 0.0650000000000001 0.0530000000000002"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="LF_HipA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="LF_HipF_link">
+    <inertial>
+      <origin
+        xyz="0.0341276001739755 -0.019970957356014 0.0466733516314776"
+        rpy="0 0 0" />
+      <mass
+        value="0.7637679120151" />
+      <inertia
+        ixx="0.00182877"
+        ixy="0.00156140"
+        ixz="-0.00056916"
+        iyy="0.00329942"
+        iyz="0.00032839"
+        izz="0.00432348" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_HipF_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_HipF_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_HipF_joint"
+    type="revolute">
+    <origin
+      xyz="0.0125000000000041 0 0.0520999999999995"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="LF_HipA_link" />
+    <child
+      link="LF_HipF_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="LF_Knee_link">
+    <inertial>
+      <origin
+        xyz="-0.0681871447456093 -0.0513397743383059 -0.00474999999999215"
+        rpy="0 0 0" />
+      <mass
+        value="0.170056196029707" />
+      <inertia
+        ixx="0.00035941"
+        ixy="-0.00037473"
+        ixz="0.00000000"
+        iyy="0.00044935"
+        iyz="0.00000000"
+        izz="0.00080109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_Knee_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_Knee_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_Knee_joint"
+    type="revolute">
+    <origin
+      xyz="0.174548813575344 -0.133913075087678 0.0732499999999949"
+      rpy="0 0 0" />
+    <parent
+      link="LF_HipF_link" />
+    <child
+      link="LF_Knee_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="LF_Foot_link">
+    <inertial>
+      <origin
+        xyz="-0.151178013734518 -0.139641800910712 -0.00475008129142648"
+        rpy="0 0 0" />
+      <mass
+        value="0.0215020941336779" />
+      <inertia
+        ixx="0.00000267"
+        ixy="-0.00000019"
+        ixz="0.00000000"
+        iyy="0.00000250"
+        iyz="0.00000000"
+        izz="0.00000000" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_Foot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LF_Foot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_Foot_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="LF_Knee_link" />
+    <child
+      link="LF_Foot_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="LH_HipA_link">
+    <inertial>
+      <origin
+        xyz="-0.00311833956635033 4.94840268334511E-05 0.0508616622224096"
+        rpy="0 0 0" />
+      <mass
+        value="0.396736076326697" />
+      <inertia
+        ixx="0.00044117"
+        ixy="0.00000017"
+        ixz="0.00000134"
+        iyy="0.00031964"
+        iyz="-0.00000001"
+        izz="0.00028996" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_HipA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_HipA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_HipA_joint"
+    type="revolute">
+    <origin
+      xyz="-0.173128307111179 0.0649997193684687 0.0529982939303751"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="LH_HipA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="LH_HipF_link">
+    <inertial>
+      <origin
+        xyz="-0.0335539045054427 0.0208556045245979 0.0451733518212865"
+        rpy="0 0 0" />
+      <mass
+        value="0.76376791373992" />
+      <inertia
+        ixx="0.00191192"
+        ixy="0.00159693"
+        ixz="0.00055973"
+        iyy="0.00321262"
+        iyz="-0.00034317"
+        izz="0.00431983" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_HipF_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_HipF_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_HipF_joint"
+    type="revolute">
+    <origin
+      xyz="0.0140002806315319 0 0.0510002692434471"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="LH_HipA_link" />
+    <child
+      link="LH_HipF_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="LH_Knee_link">
+    <inertial>
+      <origin
+        xyz="-0.06755927194242 -0.0521632429233024 -0.00474893969249238"
+        rpy="0 0 0" />
+      <mass
+        value="0.170056196029707" />
+      <inertia
+        ixx="0.00036851"
+        ixy="-0.00037572"
+        ixz="-0.00000001"
+        iyy="0.00044025"
+        iyz="0.00000000"
+        izz="0.00080109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_Knee_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_Knee_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_Knee_joint"
+    type="revolute">
+    <origin
+      xyz="-0.170947410141463 0.138478943859888 0.0717500000000038"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="LH_HipF_link" />
+    <child
+      link="LH_Knee_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="LH_Foot_link">
+    <inertial>
+      <origin
+        xyz="0.248926113560717 -0.14603319320241 -0.00475008138650498"
+        rpy="0 0 0" />
+      <mass
+        value="0.021502094606986" />
+      <inertia
+        ixx="2.67e-06"
+        ixy="-1.9e-07"
+        ixz="0.0"
+        iyy="2.49e-06"
+        iyz="0.0"
+        izz="2.64e-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_Foot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/LH_Foot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_Foot_joint"
+    type="fixed">
+    <origin
+      xyz="-0.398398865809566 0.00456757667606787 0"
+      rpy="0 0 0" />
+    <parent
+      link="LH_Knee_link" />
+    <child
+      link="LH_Foot_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RF_HipA_link">
+    <inertial>
+      <origin
+        xyz="0.0028533789416032 -0.000721010476898036 0.0463451781487894"
+        rpy="0 0 0" />
+      <mass
+        value="0.396730288390602" />
+      <inertia
+        ixx="0.00043850"
+        ixy="0.00000054"
+        ixz="-0.00000420"
+        iyy="0.00031442"
+        iyz="0.00000450"
+        izz="0.00029253" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_HipA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_HipA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_HipA_joint"
+    type="revolute">
+    <origin
+      xyz="0.12901169288882 -0.064734567408595 0.0543625646780483"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="RF_HipA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="RF_HipF_link">
+    <inertial>
+      <origin
+        xyz="-0.0351512868473612 -0.0192170456961517 0.0451736156596553"
+        rpy="0 0 0" />
+      <mass
+        value="0.763767910925837" />
+      <inertia
+        ixx="0.00185694"
+        ixy="-0.00156436"
+        ixz="0.00056272"
+        iyy="0.00323976"
+        iyz="0.00033315"
+        izz="0.00429198" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_HipF_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_HipF_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_HipF_joint"
+    type="revolute">
+    <origin
+      xyz="-0.014265 -0.0013609 0.048861"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="RF_HipA_link" />
+    <child
+      link="RF_HipF_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="RF_Knee_link">
+    <inertial>
+      <origin
+        xyz="0.0681871447456474 -0.0513397743383076 -0.00474999999999248"
+        rpy="0 0 0" />
+      <mass
+        value="0.170056196029707" />
+      <inertia
+        ixx="0.00035941"
+        ixy="-0.00037473"
+        ixz="0.0"
+        iyy="0.00044935"
+        iyz="0.0"
+        izz="0.00080109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_Knee_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_Knee_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_Knee_joint"
+    type="revolute">
+    <origin
+      xyz="-0.174549374235486 -0.13391471065725 0.0717499999999961"
+      rpy="0 0 0" />
+    <parent
+      link="RF_HipF_link" />
+    <child
+      link="RF_Knee_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="RF_Foot_link">
+    <inertial>
+      <origin
+        xyz="0.151178013734359 -0.139641800910903 -0.00474991870855934"
+        rpy="0 0 0" />
+      <mass
+        value="0.0215020941336779" />
+      <inertia
+        ixx="2.67e-6"
+        ixy="1.9e-7"
+        ixz="0.0"
+        iyy="2.50e-6"
+        iyz="0.0"
+        izz="2.64e-6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_Foot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RF_Foot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_Foot_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="RF_Knee_link" />
+    <child
+      link="RF_Foot_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RH_HipA_link">
+    <inertial>
+      <origin
+        xyz="-0.00311823997383992 -0.000639922408346944 0.0484851781487907"
+        rpy="0 0 0" />
+      <mass
+        value="0.396730288390598" />
+      <inertia
+        ixx="0.00043850"
+        ixy="0.00000054"
+        ixz="0.00000420"
+        iyy="0.00031442"
+        iyz="-0.00000450"
+        izz="0.00029253" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_HipA_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_HipA_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_HipA_joint"
+    type="revolute">
+    <origin
+      xyz="-0.173128307111179 -0.0649994284408281 0.0529983682072023"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="RH_HipA_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="RH_HipF_link">
+    <inertial>
+      <origin
+        xyz="-0.034596355200457 -0.0201274410832043 0.0451748718995732"
+        rpy="0 0 0" />
+      <mass
+        value="0.763767912551315" />
+      <inertia
+        ixx="0.00194019"
+        ixy="-0.00159755"
+        ixz="0.00055313"
+        iyy="0.00315294"
+        iyz="0.00034774"
+        izz="0.00428837" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_HipF_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_HipF_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_HipF_joint"
+    type="revolute">
+    <origin
+      xyz="0.0140005715591718 0 0.0510005606601417"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="RH_HipA_link" />
+    <child
+      link="RH_HipF_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="RH_Knee_link">
+    <inertial>
+      <origin
+        xyz="0.0675592719424158 -0.0521632429232857 -0.00474893969249285"
+        rpy="0 0 0" />
+      <mass
+        value="0.170056196029707" />
+      <inertia
+        ixx="0.00036851"
+        ixy="-0.00037572"
+        ixz="-0.00000001"
+        iyy="0.00044025"
+        iyz="-0.00000000"
+        izz="0.00080109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_Knee_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_Knee_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_Knee_joint"
+    type="revolute">
+    <origin
+      xyz="-0.17094711872477 -0.138479016194165 0.0717500000000046"
+      rpy="0 0 0" />
+    <parent
+      link="RH_HipF_link" />
+    <child
+      link="RH_Knee_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="200" />
+  </joint>
+  <link
+    name="RH_Foot_link">
+    <inertial>
+      <origin
+        xyz="0.149472752248845 -0.141465616526329 -0.00474991861349056"
+        rpy="0 0 0" />
+      <mass
+        value="0.021502094606986" />
+      <inertia
+        ixx="2.67e-6"
+        ixy="1.9e-7"
+        ixz="0.0"
+        iyy="2.49e-6"
+        iyz="0.0"
+        izz="2.64e-6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_Foot_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://狗V121.SLDASM/meshes/RH_Foot_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_Foot_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="RH_Knee_link" />
+    <child
+      link="RH_Foot_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
