@@ -162,6 +162,8 @@ class ActuatorBase(ABC):
         if not self.is_implicit_model and self.cfg.effort_limit_sim is None:
             self.cfg.effort_limit_sim = self._DEFAULT_MAX_EFFORT_SIM
 
+        print(f"INFO: Initializing actuator '{type(self).__name__}' for joints: {self.joint_names}")
+
         # resolve usd, actuator configuration values
         # case 1: if usd_value == actuator_cfg_value: all good,
         # case 2: if usd_value != actuator_cfg_value: we use actuator_cfg_value

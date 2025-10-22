@@ -199,6 +199,7 @@ class DCMotorCfg(IdealPDActuatorCfg):
     class_type: type = actuator_pd.DCMotor
 
     saturation_effort: float = MISSING
+    peak_torque_speed: float = float("0.0")
     """Peak motor force/torque of the electric DC motor (in N-m)."""
 
 

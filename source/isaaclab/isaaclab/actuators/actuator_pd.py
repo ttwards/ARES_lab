@@ -263,6 +263,10 @@ class DCMotor(IdealPDActuator):
         if self.cfg.saturation_effort is None:
             raise ValueError("The saturation_effort must be provided for the DC motor actuator model.")
         self._saturation_effort = self.cfg.saturation_effort
+        if self.cfg.peak_torque_speed is not None:
+            self._peak_torque_speed = self.cfg.peak_torque_speed
+        else:
+            self._peak_torque_speed = 0
         # find the velocity on the torque-speed curve that intersects effort_limit in the second and fourth quadrant
         self._vel_at_effort_lim = self.velocity_limit * (1 + self.effort_limit / self._saturation_effort)
         # prepare joint vel buffer for max effort computation
@@ -290,18 +294,22 @@ class DCMotor(IdealPDActuator):
     """
 
     def _clip_effort(self, effort: torch.Tensor) -> torch.Tensor:
-        # save current joint vel
-        self._joint_vel[:] = torch.clip(self._joint_vel, min=-self._vel_at_effort_lim, max=self._vel_at_effort_lim)
         # compute torque limits
-        torque_speed_top = self._saturation_effort * (1.0 - self._joint_vel / self.velocity_limit)
-        torque_speed_bottom = self._saturation_effort * (-1.0 - self._joint_vel / self.velocity_limit)
-        # -- max limit
-        max_effort = torch.clip(torque_speed_top, max=self.effort_limit)
-        # -- min limit
-        min_effort = torch.clip(torque_speed_bottom, min=-self.effort_limit)
+        joint_vel_rate = (self._joint_vel - self._peak_torque_speed) / self.velocity_limit
+        if torch.any(joint_vel_rate > 0.0):
+            # -- max limit
+            max_effort = self._saturation_effort * (1.0 - joint_vel_rate)
+            max_effort = torch.clip(max_effort, min=self._zeros_effort, max=self.effort_limit)
+            # -- min limit
+            min_effort = self._saturation_effort * (-1.0 - joint_vel_rate)
+            min_effort = torch.clip(min_effort, min=-self.effort_limit, max=self._zeros_effort)
+        else:
+            # -- max limit
+            saturation_effort_tensor = torch.as_tensor(self._saturation_effort, device=effort.device, dtype=effort.dtype)
+            max_effort = torch.clip(saturation_effort_tensor, min=self._zeros_effort, max=self.effort_limit)
+            min_effort = torch.clip(-saturation_effort_tensor, min=-self.effort_limit, max=self._zeros_effort)
         # clip the torques based on the motor limits
-        clamped = torch.clip(effort, min=min_effort, max=max_effort)
-        return clamped
+        return torch.clip(effort, min=min_effort, max=max_effort)
 
 
 class DelayedPDActuator(IdealPDActuator):
