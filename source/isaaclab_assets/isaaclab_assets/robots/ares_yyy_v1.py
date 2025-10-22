@@ -17,7 +17,7 @@ from isaaclab.assets.articulation import ArticulationCfg
 
 ARES_YYY1_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path="/home/ares/dog_ws/dogv121.sldasm/usd/dogV121.SLDASM.usd",
+        usd_path="/mnt/hdd/homes/ares/dog_ws/dogv121.sldasm/usd/dogV121.SLDASM.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
