@@ -1,1 +1,1 @@
-HYDRA_FULL_ERROR=1 python scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Velocity-Rough-ARES-YYY-v1-v0 --num_envs 8000 --headless --resume --load_run 2025-10-23_21-52-35 --checkpoint model_600.pt
+HYDRA_FULL_ERROR=1 python scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Velocity-Rough-ARES-YYY-v1-v0 --headless
