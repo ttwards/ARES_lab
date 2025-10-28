@@ -40,9 +40,9 @@ ARES_YYY1_CFG = ArticulationCfg(
     soft_joint_pos_limit_factor=0.9,
     actuators={
         "base_legs": DCMotorCfg(
-            joint_names_expr=[".*_HipA_joint", ".*_HipF_joint"],
-            effort_limit=17,
-            saturation_effort=17,
+            joint_names_expr=[".*_HipA_joint", ".*_HipF_joint", ".*_Knee_joint"],
+            effort_limit={
+                '.*HipA_joint': 17,
                 '.*HipF_joint': 17,
                 '.*Knee_joint': 34,
             },
