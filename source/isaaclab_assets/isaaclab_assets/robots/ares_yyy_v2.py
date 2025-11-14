@@ -7,17 +7,17 @@
 
 The following configurations are available:
 
-* :obj:`ARES_YYY1_CFG`: ARES YYY v1 dog
+* :obj:`ARES_YYY2_CFG`: ARES YYY v2 dog
 """
 
 import isaaclab.sim as sim_utils
-from isaaclab.actuators import DCMotorCfg
+from isaaclab.actuators import DCMotorCfg, ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 # from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
 
-ARES_YYY1_CFG = ArticulationCfg(
+ARES_YYY2_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path="/home/ares/dog_ws/dogv121.sldasm/usd/dogV121.flatten.usd",
+        usd_path="/home/ares/dog_ws/DOGV2.16.SLDASM/DOGV216.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -39,32 +39,34 @@ ARES_YYY1_CFG = ArticulationCfg(
     ),
     soft_joint_pos_limit_factor=0.9,
     actuators={
-        "base_legs": DCMotorCfg(
-            joint_names_expr=[".*_HipA_joint", ".*_HipF_joint", ".*_Knee_joint"],
-            effort_limit={
-                '.*HipA_joint': 17,
-                '.*HipF_joint': 17,
-                '.*Knee_joint': 34,
-            },
-            saturation_effort={
-                '.*HipA_joint': 17,
-                '.*HipF_joint': 17,
-                '.*Knee_joint': 34,
-            },
-            peak_torque_speed={
-                '.*HipA_joint': 8.4,
-                '.*HipF_joint': 8.4,
-                '.*Knee_joint': 4.1,
-            },
-            velocity_limit={
-                '.*HipA_joint': 22.0,
-                '.*HipF_joint': 22.0,
-                '.*Knee_joint': 11.0,
-            },
+        "hip_joints": DCMotorCfg(
+            joint_names_expr=[".*_HipA_joint", ".*_HipF_joint"],
+            effort_limit=17.0,
+            saturation_effort=17.0,
+            peak_torque_speed=8.4,
+            velocity_limit=22.0,
             stiffness=25.0,
+            damping=0.5,
+            friction=0.0,
+        ),
+        "knee_joints": DCMotorCfg(
+            joint_names_expr=[".*_Knee_joint"],
+            effort_limit=25.0,
+            saturation_effort=25.0,
+            peak_torque_speed=3.7,
+            velocity_limit=13.0,
+            stiffness=25.0,
+            damping=0.5,
+            friction=0.0,
+        ),
+        "wheels": ImplicitActuatorCfg(
+            joint_names_expr=[".*_Wheel_joint"],
+            effort_limit_sim=2.4,
+            velocity_limit_sim=50.0,
+            stiffness=0.0,
             damping=0.5,
             friction=0.0,
         ),
     },
 )
-"""Configuration of ARES YYY v1 dog using DC-Motor actuator model."""
+"""Configuration of ARES YYY v2 dog using DC-Motor actuator model."""
